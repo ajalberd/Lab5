@@ -24,6 +24,11 @@ import pkgPokerEnum.eCardDestination;
 import pkgPokerEnum.eDrawCount;
 import pkgPokerEnum.eGame;
 import pkgPokerEnum.eGameState;
+import java.io.IOException;
+import java.util.UUID;
+
+import javafx.scene.control.ToggleButton;
+
 
 public class PokerHub extends Hub {
 
@@ -68,26 +73,34 @@ public class PokerHub extends Hub {
 				break;
 			case StartGame:
 				// Get the rule from the Action object.
-				Rule rle = new Rule(act.geteGame());
-				
-				//TODO Lab #5 - If neither player has 'the button', pick a random player
-				//		and assign the button.				
-
-				//TODO Lab #5 - Start the new instance of GamePlay
-								
+				Rule rle = new Rule(act.geteGame());			
 				// Add Players to Game
-				
+				//From help session - takes the playerID, and then assigns it to dealer.
+				UUID firstplayer = actPlayer.getPlayerID();
+				HubGamePlay = new GamePlay(rle, firstplayer);
+				HubGamePlay.setGamePlayers(HubPokerTable.getHmPlayer());
 				// Set the order of players
+				HubGamePlay.setiActOrder(GamePlay.GetOrder(1)); //Assuming first player
 				
 
 
 			case Draw:
-
-				//TODO Lab #5 -	Draw card(s) for each player in the game.
-				//TODO Lab #5 -	Make sure to set the correct visiblity
-				//TODO Lab #5 -	Make sure to account for community cards
-
-				//TODO Lab #5 -	Check to see if the game is over
+				/*for (int x = 0; x < 2;x++){
+					//One of my failed trials: HubGamePlay.drawCard(HubGameplay.getPlayerByPosition(2), HubGamePlay.getCardDestination());
+					//Another: HubGamePlay.getRule().GetDrawCard(eDrawCount.geteDrawCount.geteDrawCount(iDealNbr)).getCardDestination());
+					Rule gametype = new Rule(act.geteGame());
+						//for (int x = 0, x < cd.getCardCount())
+					Player samplePlayer = new Player();
+				CardDraw card =  this.gametype.GetDrawCard(eDrawCountLast);
+					if (card.getCardDestination() == (eCardDestination.)){
+						
+					}
+					for (int y = 0; y <   ){
+						
+					}
+				eDrawCountLast = eDrawCount.geteDrawCount(eDrawCountLast +1) //taken from lecture
+				}*/
+				//I cannot test perfectly without a working multiplayer - check my post on Piazza.
 				HubGamePlay.isGameOver();
 				
 				resetOutput();

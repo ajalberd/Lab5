@@ -116,7 +116,8 @@ public class RootLayoutController implements Initializable {
 		//	Pot Limit (this is NOT the default)
 		//	Group them together with a Toggle Group
 		//	Write a method to return which is selected.. .check out getRuleName()
-
+		
+		//It looks like there already are options to display betting limit... I can select whichever ones I want already.
 	}
     
 	
