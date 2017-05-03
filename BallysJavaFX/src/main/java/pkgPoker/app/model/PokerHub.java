@@ -85,6 +85,18 @@ public class PokerHub extends Hub {
 
 
 			case Draw:
+				
+				for(Player p : HubPokerTable.getHmPlayer().values()){
+					HubGamePlay.getRule().GetDrawCard(eDrawCount.geteDrawCount(iDealNbr)).getCardDestination();
+					HubGamePlay.drawCard(p,eCardDestination.Player);
+					
+				}
+				
+				/*for (int x = 0; x < 2; x++){
+					HubGamePlay.getRule().GetDrawCard(eDrawCount.geteDrawCount(iDealNbr)).getCardDestination();
+					HubGamePlay.drawCard(HubGamePlay.getPlayerByPosition(x), HubGamePlay.getCardDestination());
+				}*/
+				
 				/*for (int x = 0; x < 2;x++){
 					//One of my failed trials: HubGamePlay.drawCard(HubGameplay.getPlayerByPosition(2), HubGamePlay.getCardDestination());
 					//Another: HubGamePlay.getRule().GetDrawCard(eDrawCount.geteDrawCount.geteDrawCount(iDealNbr)).getCardDestination());
